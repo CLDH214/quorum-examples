@@ -18,12 +18,14 @@ rm -rf $CREL
 GOREL=go1.9.3.linux-amd64.tar.gz
 wget -q https://dl.google.com/go/$GOREL
 tar xfz $GOREL
+rm -rf /usr/local/go
 mv go /usr/local/go
 rm -f $GOREL
 PATH=$PATH:/usr/local/go/bin
 echo 'PATH=$PATH:/usr/local/go/bin' >> /home/vagrant/.bashrc
 
 # make/install quorum
+rm -rf quorum/
 git clone https://github.com/jpmorganchase/quorum.git
 pushd quorum >/dev/null
 git checkout tags/v2.0.1
